@@ -1,22 +1,16 @@
 <x-layout>
-    @auth
-    <li class="naw-item">
-        <a href="nav-link" href="{{ruote('article.create')}}">Inserisci un articolo</a>
-    </li>
-
-    <form action="{{route('article.store')}}" method="post" class="card p-5 shadow" enctype="multipart/form-data">
-    @csrf
-    <div class="container-fluid p-5 bg-secondary-subtle text-center">
+       <div class="container-fluid p-5 bg-secondary-subtle text-center">
         <div class="row justify-content-center">
             <div class="col-12">
-                <hi class="display-1">Inserisci un articolo</hi>
+                <h1 class="display-1">Inserisci un articolo</h1>
                 </div>
             </div>
         </div>
         <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-12 col-nd-8">
-                    <form class="card p-5 shadow" enctype="multipart/forn-data">
+                <form action="{{route('article.store')}}" method="post" class="card p-5 shadow" enctype="multipart/form-data">
+                @csrf
                         <div class="mb-3">
                             <label for="title" class="form-label">Titolo</label>
                             <input type="text" name="title" class="form-control" id="title" value="{{old('title')}}">
@@ -56,12 +50,12 @@
                             @error('body')
                             <but class="text-danger">{{$message}}</span>
                             @enderror
-                        <div class="at-3 d-flex justify-content-center flex-colunn align-itens-center">
-                            <button type="subnit" class="btn bta-outline-secondary">Inserisci articolos</button>
-                        <a href="{{route('homepage')}}" class="textsecondary nt-2">Torna alla hone</a>
-
-                        </div>
-                    </form>
-                </div>
+                        <div class="mt-3 d-flex justify-content-center flex-colunn align-itens-center">
+                            <button type="subnit" class="btn btn-outline-secondary"> Inserisci articoli </button>
+                        <a href="{{route('homepage')}}" class="text-secondary mt-1"> Torna alla hone </a>
+                    </div>
+                </form>
             </div>
+       </div>
+    </div>
 </x-layout>

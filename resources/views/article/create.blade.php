@@ -1,6 +1,10 @@
 <x-layout>
+    @auth
+    <li class="naw-item">
+        <a href="nav-link" href="{{ruote('article.create')}}">Inserisci un articolo</a>
+    </li>
 
-    <form action="{{route('article.store')}}" method="POST" class="card p-5 shadow" enctype="multipart/form-data">
+    <form action="{{route('article.store')}}" method="post" class="card p-5 shadow" enctype="multipart/form-data">
     @csrf
     <div class="container-fluid p-5 bg-secondary-subtle text-center">
         <div class="row justify-content-center">

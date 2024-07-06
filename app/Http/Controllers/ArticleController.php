@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
+
 
 class ArticleController extends Controller
 {
@@ -20,7 +24,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('article.create');
     }
 
     /**
@@ -28,7 +32,22 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|unique:articles|min:5',
+            'subtitle' => 'required|min:5',
+            'body' => 'required|min:10',
+            'image' => 'required|image',
+            'category' => 'required',
+            ]);
+            $article =Article::create([
+                'title' => $request->title,
+                'subtitle' => $request->subtitle,
+                'body' => $request->body,
+                'image' => $request->file('image')->store('public/images'),
+                'category_id' => $request->category,
+                'user_id' => Auth:: user()->id,
+                ]);
+                return redirect(route('homepage'))->with('message', 'Item created successfully');
     }
 
     /**
@@ -61,5 +80,14 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         //
+    }
+
+    public static function middleware()
+    {
+        return [
+            new Middleware('auth', except: ['index','show', 'show', 'byCategory','byUser']),
+        ];
+
+
     }
 }

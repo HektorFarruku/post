@@ -16,7 +16,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $aticles = Article::orderBy('created_at', 'desc')->get();
+        return view('article.index', compact('articles'));
     }
 
     /**
@@ -55,7 +56,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('article.show', compact('article'));
     }
 
     /**
@@ -63,7 +64,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('article.show', compact('article'));
     }
 
     /**
@@ -90,4 +91,5 @@ class ArticleController extends Controller
 
 
     }
+
 }

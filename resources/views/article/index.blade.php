@@ -1,18 +1,14 @@
 <x-layout>
-<a href="{{routa('article.show', $article)}}" class="btn btn-outline-secondary">Leggi</a>
+    <div class="container-fluid p-5 bg-secondary-subtle text-center">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <ul>
 
-@if (session('message'))
-    <div class="alert lert-success">
-        {{session('message')}}
-    </div>
-@endif
-<div class="continer-fluid p-5 bg-secondary-subtle tex-center">
-    <div class="row justify-content-center">
-        <div class="col-5">
-            <strong> <h1 class="display-9">The Aulab Post</h1></strong>
+                    <h1 class="display-1">Tutti gli articoli</h1>
+                </ul>
+            </div>
+
         </div>
-    </div>
-</div>
         <div class="container my-5">
             <div class="row justify-content-evenly">
                 @foreach ($articles as $article)
@@ -28,8 +24,8 @@
                                 </p>
                             </div>
                             <div class="card-footer d-flex justify-content-between align-items-center">
-                                <p>Redatto il {{$article->created_at->format('d/m/y')}} <br>
-                                    da {$article->user->name}}</p>
+                                <p>Redatto il {{$article->created_at->format('d/m/Y')}} <br>
+                                    da {{$article->user->name}}</p>
                                 <a href="#" class="btn btn-outline-secondary">Leggi</a>
                             </div>
                         </div>

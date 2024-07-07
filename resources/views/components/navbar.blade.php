@@ -1,22 +1,20 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-
-    <a class="navbar-brand" href="{{route('homepage')}}">POST</a>
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-         <li class="nav-item">
-        <a class="navbar-brand" href="{{route('article.create')}}">Inserisci un articolo</a>
-        </li>
-    </ul>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{route('homepage')}}">POST</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="navbar-brand" href="{{route('article.create')}}">Inserisci un articolo</a>
+          </li>
+        </ul>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       @auth
         <li class="nav-item">
           <a class="nav-link" href="{{route('article.create')}}">Inserisci un articolo</a>
         </li>
-
         @endauth
         @guest
         <li class="nav-item dropdown">
@@ -26,8 +24,6 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{{route('register')}}">Registrati</a></li>
             <li><a class="dropdown-item" href="{{route('login')}}">Acedi</a></li>
-
-
             <li><a class="dropdown-item" href="{{route('homepage')}}">Something else here</a></li>
           </ul>
         </li>
@@ -39,5 +35,4 @@
       </form>
     </div>
   </div>
-
 </nav>

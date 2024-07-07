@@ -1,6 +1,4 @@
 <x-layout>
-<a href="{{routa('article.show', $article)}}" class="btn btn-outline-secondary">Leggi</a>
-
 @if (session('message'))
     <div class="alert lert-success">
         {{session('message')}}
@@ -28,9 +26,9 @@
                                 </p>
                             </div>
                             <div class="card-footer d-flex justify-content-between align-items-center">
-                                <p>Redatto il {{$article->created_at->format('d/m/y')}} <br>
-                                    da {$article->user->name}}</p>
-                                <a href="#" class="btn btn-outline-secondary">Leggi</a>
+                                <p>Registato il {{$article->created_at->format('d/m/Y')}} <br>
+                                    da {{$article->user->name}}</p>
+                                <a href="{{route('article.show', $article)}}" class="btn btn-outline-secondary">Leggi</a>
                             </div>
                         </div>
                     </div>

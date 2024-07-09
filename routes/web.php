@@ -1,11 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\PublicController;
+use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\AdminController;
 use App\Models\Article;
+use App\Models\User;
+
 
 
 // class PublicController extends Controller
@@ -22,6 +25,15 @@ Route::get('/article/index', [ArticleController::class, 'index'])->name('article
 Route::get('/article/show/{article}', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/article/category/{category}', [ArticleController::class, 'byCategory'])->name('article.byCategory');
 Route::get('/article/user/{user}', [ArticleController::class, 'byUser'])->name('article.byUser');
+Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
+Route::post('/careers/submit', [PublicController::class, 'careersSubmit'])->name('careers.submit');
 
+Route::middleware('admin')->group(function(){
+    Route::get('/admin/dashboard',[AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
 
-
+Route::middleware('admin')->group(function(){
+    Route::patch('/admin/{user}/set-admin', [AdminController::class, 'setAdmin'])->name('admin.setAdmin');
+    Route::patch('/admin/{user}/set-revisor', [AdminController::class, 'setRevisor'])->name('admin.setRevisor');
+    Route::patch('/admin/{user}/set-writer', [AdminController::class, 'setWriter'])->name('admin.setWriter');
+});

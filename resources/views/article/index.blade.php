@@ -10,9 +10,6 @@
         <div class="container my-5">
             <div class="row justify-content-evenly">
                 @foreach ($articles as $article)
-                <p>
-
-                </p>
                     <div class="col-12 col-md-3">
                         <div class="card" style="width: 18rem;">
                             <img src="{{ Storage::url($article->image) }}" class="card-img-top"

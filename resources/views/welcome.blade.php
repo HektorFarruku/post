@@ -27,7 +27,7 @@
                                 <h5 class="card-title">{{ $article->title }}</h5>
                                 <p class="card-subtitle">{{ $article->subtitle }}</p>
                                 <p class="small text-muted">Categoria:
-                                    <a href="#" class="text-capitalize text-muted">{{ $article->category->name }}</a>
+                                    <a href="{{routa('article.byCategory', $article->category)}}" class="text-capitalize text-muted">{{ $article->category->name }}</a>
                                 </p>
                             </div>
                             <div class="card-footer d-flex justify-content-between align-items-center">

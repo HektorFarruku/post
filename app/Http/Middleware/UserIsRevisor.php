@@ -21,4 +21,4 @@ class UserIsRevisor
         }
         return redirect(route('homepage'))->with('alert', 'Non seiautorizzato');
     }
-}
+};

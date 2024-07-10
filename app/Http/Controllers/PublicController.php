@@ -17,7 +17,7 @@ class PublicController extends Controller implements HasMiddleware
         return view('welcome', compact('articles'));
     }
     public function careers(){
-        return view('resources.careers');
+        return view('careers');
     }
 
     public static function middleware()
@@ -55,7 +55,7 @@ class PublicController extends Controller implements HasMiddleware
                 $user->is_writer = NULL;
                 break;
         }
-        $user->update();
+        //$user->update();
         return redirect(route('homepage'))->with('message', 'Mail inviata con successo!');
     }
 }

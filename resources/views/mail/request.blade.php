@@ -10,7 +10,7 @@
     <h1>E' arrivata una richiesta per il ruolo di {{$info['role']}}</h1>
     <p>Ricevevuta da {{$info['email']}}</p>
     <h4>Messaggio</h4>
-    <p>{{$info['massage']}}</p>
+    <p>{{$info['message']}}</p>
 
 </body>
 </html>

@@ -2,9 +2,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="{{route('homepage')}}">POST</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="navbar-brand" href="{{route('article.create')}}">Inserisci un articolo</a>
-            </li>
+
             <li class="nav-item"><a class="dropdown-item" aria-current="page" href="{{route('careers')}}">Lavora con noi</a></li>
         </ul>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -15,6 +13,9 @@
         </li>
         @if (Auth::user()->is_admin)
             <li><a class="dropdown-item" href="{{route('admin.dashboard')}}"></a> Dashboard Admin</li>
+              @endif
+              @if (Auth::user()->is_revisor)
+            <li><a class="dropdown-item" href="{{route('revisor.dashboard')}}"></a> Dashboard Revisor</li>
               @endif
         @endauth
         @guest

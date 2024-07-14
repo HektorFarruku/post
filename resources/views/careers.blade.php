@@ -43,9 +43,9 @@
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
-
+                    <div class="mt-3 d-flex justinfy-content-center">
                         <button type="submit" class="btn btn-autline-sencondary">Invia candidatura</button>
-
+                    </div>
                 </form>
             </div>
             <div class="col-12 col-md-6 p-5">

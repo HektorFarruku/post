@@ -13,7 +13,7 @@ use App\Models\User;
 class PublicController extends Controller implements HasMiddleware
 {
     public function homepage(){
-        $articles = Article::orderBy('created_at', 'desc')->take(4)->get();
+        $articles = Article::where('is_accepted','true')->orderBy('created_at', 'desc')->take(4)->get();
         return view('welcome', compact('articles'));
     }
     public function careers(){
@@ -42,7 +42,7 @@ class PublicController extends Controller implements HasMiddleware
         $message = $request->message;
         $info = compact('role', 'email', 'message');
 
-        //Mail::to('admin@theaulabpost.it')->send(new CareerRequestMail($info));
+        Mail::to('admin@theaulabpost.it')->send(new CareerRequestMail($info));
 
         switch ($role) {
             case 'admin':
@@ -55,7 +55,9 @@ class PublicController extends Controller implements HasMiddleware
                 $user->is_writer = NULL;
                 break;
         }
+
         //$user->update();
         return redirect(route('homepage'))->with('message', 'Mail inviata con successo!');
     }
 }
+
